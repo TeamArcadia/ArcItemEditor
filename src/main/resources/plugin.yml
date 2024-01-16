@@ -1,0 +1,32 @@
+name: PXItemEditor
+version: '${version}'
+main: com.sh.pxitemeditor.PXItemEditor
+api-version: '1.17'
+
+commands:
+  ie:
+    aliases: [ 아이템편집 ]
+
+permissions:
+  px.itemeditor.*:
+    default: op
+    children:
+      - px.itemeditor.reload
+      - px.itemeditor.name
+      - px.itemeditor.lore
+      - px.itemeditor.custommodeldata
+      - px.itemeditor.unbreakable
+      - px.itemeditor.enchant
+
+px.itemeditor.reload:
+  default: op
+px.itemeditor.name:
+  default: op
+px.itemeditor.lore:
+  default: op
+px.itemeditor.custommodeldata:
+  default: op
+px.itemeditor.unbreakable:
+  default: op
+px.itemeditor.enchant:
+  default: op
