@@ -8,13 +8,13 @@ import lombok.Getter;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public final class PXItemEditor extends JavaPlugin {
+public class PXItemEditor extends JavaPlugin {
+
+    @Getter
+    private static PXItemEditor instance;
 
     @Getter
     private MessageManager messageManager;
-
-    @Getter
-    public static PXItemEditor instance;
 
     @Override
     public void onEnable() {
@@ -27,8 +27,8 @@ public final class PXItemEditor extends JavaPlugin {
         messageManager.initialize();
 
         /* --------------- COMMAND ---------------*/
-        getServer().getPluginCommand("ie").setExecutor(new ItemEditorCmd());
-        getServer().getPluginCommand("ie").setTabCompleter(new ItemEditorCmdTab());
+        getCommand("ie").setExecutor(new ItemEditorCmd());
+        getCommand("ie").setTabCompleter(new ItemEditorCmdTab());
         // Plugin startup logic
 
     }
@@ -39,7 +39,7 @@ public final class PXItemEditor extends JavaPlugin {
         // Plugin shutdown logic
     }
 
-    public Boolean hasPermission(Player player, String permission) {
+    public boolean hasPermission(Player player, String permission) {
         if (player.hasPermission("px.itemeditor." + permission)) {
             return true;
         } else {

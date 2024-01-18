@@ -18,7 +18,6 @@ public class MessageManager {
 
         ConfigurationSection messageSection = config.getConfigurationSection("message");
 
-
         for (MessageKey key : MessageKey.values()) {
             String message = messageSection.getString(key.getKey());
             messageMap.put(key, (message == null) ? "Invalid Message." : message);

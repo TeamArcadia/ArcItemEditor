@@ -15,7 +15,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class ItemEditorCmd implements CommandExecutor {
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
@@ -39,7 +38,7 @@ public class ItemEditorCmd implements CommandExecutor {
 
                 player.sendMessage(PXItemEditor.getInstance().getMessageManager().getMessage(MessageKey.RELOAD_CONFIG));
             }
-            // 이름, 로어, 커스텀모델데이터, 내구도 (부서지지 않음), 인챈트
+
             case "이름", "name" -> {
                 if (!PXItemEditor.getInstance().hasPermission(player, "name")) return false;
 
@@ -90,7 +89,7 @@ public class ItemEditorCmd implements CommandExecutor {
 
                         player.sendMessage(PXItemEditor.getInstance().getMessageManager().getMessage(MessageKey.LORE_EDIT));
                     }
-                    // /아이템편집 로어 삭제 줄수
+
                     case "삭제", "delete" -> {
 
                         int line = Integer.parseInt(args[2]);
@@ -121,7 +120,7 @@ public class ItemEditorCmd implements CommandExecutor {
 
                 player.sendMessage(PXItemEditor.getInstance().getMessageManager().getMessage(MessageKey.CUSTOMMODELDATA_EDIT).replace("{custommodeldata}", args[1]));
             }
-            // /아이템편집 인챈트 <추가/삭제> <인챈트ID> <값>
+
             case "인챈트", "enchant" -> {
                 if (!PXItemEditor.getInstance().hasPermission(player, "enchant")) return false;
                 switch (args[1].toLowerCase()) {
@@ -131,7 +130,6 @@ public class ItemEditorCmd implements CommandExecutor {
 
                         int level;
 
-                        // 레벨 예외 처리
                         try {
                             level = Integer.parseInt(args[3]);
                         } catch (NumberFormatException e) {
@@ -139,7 +137,6 @@ public class ItemEditorCmd implements CommandExecutor {
                             return false;
                         }
 
-                        // 존재하지 않는 인챈트 처리
                         Enchantment enchantment = Enchantment.getByKey(NamespacedKey.minecraft(enchantName.toLowerCase()));
                         if (enchantment == null) {
                             player.sendMessage("존재하지 않는 인챈트입니다.");
@@ -148,10 +145,6 @@ public class ItemEditorCmd implements CommandExecutor {
 
                         ItemStack itemStack = player.getInventory().getItemInMainHand();
                         ItemMeta itemMeta = itemStack.getItemMeta();
-
-                        // 기존 인챈트 유지를 위한 처리
-                        //Map<Enchantment, Integer> existingEnchants = itemMeta.getEnchants();
-                        //existingEnchants.put(enchantment, level);
 
                         itemMeta.addEnchant(enchantment, level, true);
                         itemStack.setItemMeta(itemMeta);

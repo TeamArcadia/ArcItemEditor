@@ -11,44 +11,45 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 
 public class ItemEditorCmdTab implements TabCompleter {
+
+    @Nullable
     @Override
-    public @Nullable List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command cmd, @NotNull String label, @NotNull String[] args) {
+    public List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command cmd, @NotNull String label, @NotNull String[] args) {
         List<String> completions = new ArrayList<>();
+
+        Player player = (Player) sender;
 
         if (args.length == 1) {
             if (label.equalsIgnoreCase("ie")) {
-                if (PXItemEditor.getInstance().hasPermission((Player) sender, "reload")) completions.add("reload");
-                if (PXItemEditor.getInstance().hasPermission((Player) sender, "name")) completions.add("name");
-                if (PXItemEditor.getInstance().hasPermission((Player) sender, "lore")) completions.add("lore");
-                if (PXItemEditor.getInstance().hasPermission((Player) sender, "custommodeldata"))
+                if (PXItemEditor.getInstance().hasPermission(player, "reload")) completions.add("reload");
+                if (PXItemEditor.getInstance().hasPermission(player, "name")) completions.add("name");
+                if (PXItemEditor.getInstance().hasPermission(player, "lore")) completions.add("lore");
+                if (PXItemEditor.getInstance().hasPermission(player, "custommodeldata"))
                     completions.add("custommodeldata");
-                if (PXItemEditor.getInstance().hasPermission((Player) sender, "enchant")) completions.add("enchant");
-                if (PXItemEditor.getInstance().hasPermission((Player) sender, "unbreakable"))
+                if (PXItemEditor.getInstance().hasPermission(player, "enchant")) completions.add("enchant");
+                if (PXItemEditor.getInstance().hasPermission(player, "unbreakable"))
                     completions.add("unbreakable");
 
             } else if (label.equalsIgnoreCase("아이템편집")) {
-                if (PXItemEditor.getInstance().hasPermission((Player) sender, "reload")) completions.add("리로드");
-                if (PXItemEditor.getInstance().hasPermission((Player) sender, "name")) completions.add("이름");
-                if (PXItemEditor.getInstance().hasPermission((Player) sender, "lore")) completions.add("로어");
-                if (PXItemEditor.getInstance().hasPermission((Player) sender, "custommodeldata"))
+                if (PXItemEditor.getInstance().hasPermission(player, "reload")) completions.add("리로드");
+                if (PXItemEditor.getInstance().hasPermission(player, "name")) completions.add("이름");
+                if (PXItemEditor.getInstance().hasPermission(player, "lore")) completions.add("로어");
+                if (PXItemEditor.getInstance().hasPermission(player, "custommodeldata"))
                     completions.add("커스텀모델데이터");
-                if (PXItemEditor.getInstance().hasPermission((Player) sender, "enchant")) completions.add("인챈트");
-                if (PXItemEditor.getInstance().hasPermission((Player) sender, "unbreakable"))
+                if (PXItemEditor.getInstance().hasPermission(player, "enchant")) completions.add("인챈트");
+                if (PXItemEditor.getInstance().hasPermission(player, "unbreakable"))
                     completions.add("내구도무한");
             }
         } else if (args.length == 2) {
             if ("lore".equalsIgnoreCase(args[0])) {
-                completions.add("add");
-                completions.add("set");
-                completions.add("delete");
+                completions.addAll(Arrays.asList("add", "set", "delete"));
             } else if ("로어".equalsIgnoreCase(args[0])) {
-                completions.add("추가");
-                completions.add("설정");
-                completions.add("삭제");
+                completions.addAll(Arrays.asList("추가", "설정", "삭제"));
             }
             if (("custommodeldata".equalsIgnoreCase(args[0]))) {
                 completions.add("<modelnumber>");
@@ -56,18 +57,16 @@ public class ItemEditorCmdTab implements TabCompleter {
                 completions.add("<모델 번호>");
             }
             if (("enchant".equalsIgnoreCase(args[0]))) {
-                completions.add("add");
-                completions.add("delete");
+                completions.addAll(Arrays.asList("add", "delete"));
             } else if (("인챈트".equalsIgnoreCase(args[0]))) {
-                completions.add("추가");
-                completions.add("삭제");
+                completions.addAll(Arrays.asList("추가", "삭제"));
             }
             if ("unbreakable".equalsIgnoreCase(args[0])) {
+                completions.addAll(Arrays.asList("true", "false"));
                 completions.add("true");
                 completions.add("false");
             } else if ("내구도무한".equalsIgnoreCase(args[0])) {
-                completions.add("활성화");
-                completions.add("비활성화");
+                completions.addAll(Arrays.asList("활성화", "비활성화"));
             }
 
         } else if (args.length == 3) {
