@@ -5,7 +5,7 @@ api-version: '1.17'
 
 commands:
   ie:
-    aliases: [ 아이템편집 ]
+    aliases: [ 아이템편집, itemeditor ]
 
 permissions:
   px.itemeditor.*:
@@ -17,16 +17,15 @@ permissions:
       - px.itemeditor.custommodeldata
       - px.itemeditor.unbreakable
       - px.itemeditor.enchant
-
-px.itemeditor.reload:
-  default: op
-px.itemeditor.name:
-  default: op
-px.itemeditor.lore:
-  default: op
-px.itemeditor.custommodeldata:
-  default: op
-px.itemeditor.unbreakable:
-  default: op
-px.itemeditor.enchant:
-  default: op
+  px.itemeditor.reload:
+    default: op
+  px.itemeditor.name:
+    default: op
+  px.itemeditor.lore:
+    default: op
+  px.itemeditor.custommodeldata:
+    default: op
+  px.itemeditor.unbreakable:
+    default: op
+  px.itemeditor.enchant:
+    default: op

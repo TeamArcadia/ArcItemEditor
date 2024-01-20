@@ -3,7 +3,7 @@ plugins {
 }
 
 group = 'com.sh'
-version = '1.0.0'
+version = '1.0.1'
 
 repositories {
     mavenCentral()
@@ -39,7 +39,7 @@ tasks.withType(JavaCompile).configureEach {
     if (targetJavaVersion >= 10 || JavaVersion.current().isJava10Compatible()) {
         options.release.set(targetJavaVersion)
     }
-    options.encoding = 'UTF-8';
+    options.encoding = 'UTF-8'
 }
 
 processResources {
@@ -52,5 +52,5 @@ processResources {
 }
 
 jar {
-    destinationDirectory = file("C:\\Users\\Administrator\\Desktop\\20.1\\plugins")
+    destinationDirectory = file("C:\\Users\\Administrator\\Desktop\\플긴제작섭\\plugins")
 }
