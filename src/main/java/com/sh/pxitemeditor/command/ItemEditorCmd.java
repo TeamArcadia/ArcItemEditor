@@ -14,6 +14,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class ItemEditorCmd implements CommandExecutor {
@@ -42,7 +43,8 @@ public class ItemEditorCmd implements CommandExecutor {
             case "이름", "name" -> {
                 if (!PXItemEditor.getInstance().hasPermission(player, "name")) return false;
 
-                String name = args[1];
+                String name = String.join(" ", Arrays.copyOfRange(args, 1, args.length));
+                player.sendMessage(name);
 
                 ItemStack itemStack = player.getInventory().getItemInMainHand();
                 ItemMeta itemMeta = itemStack.getItemMeta();
@@ -58,7 +60,7 @@ public class ItemEditorCmd implements CommandExecutor {
                 switch (args[1].toLowerCase()) {
                     case "추가", "add" -> {
 
-                        String lore = args[2];
+                        String lore = String.join(" ", Arrays.copyOfRange(args, 2, args.length));
 
                         ItemStack itemStack = player.getInventory().getItemInMainHand();
                         ItemMeta itemMeta = itemStack.getItemMeta();
@@ -76,7 +78,7 @@ public class ItemEditorCmd implements CommandExecutor {
 
                         int line = Integer.parseInt(args[2]);
 
-                        String content = args[3];
+                        String content = String.join(" ", Arrays.copyOfRange(args, 3, args.length));
 
                         ItemStack itemStack = player.getInventory().getItemInMainHand();
                         ItemMeta itemMeta = itemStack.getItemMeta();
