@@ -1,9 +1,9 @@
 # ┌────────────────────────────────────────────────────────────────────────────+
-# │ [ PXItemEditor 콘피그 파일입니다. ]
+# │ [ ArcItemEditor 콘피그 파일입니다. ]
 # │ [ 불필요한 메시지는 지우거나 해당 라인 앞에 '#'을 붇여서 주석 처리해주세요. ]
 # │
-# │ - PIXTORE 디스코드 : https://discord.gg/NanAFkRdww
-# │ - PIXTORE 위키 : https://pixtore.gitbook.io/wiki/
+# │ - ARCADIA 디스코드 : https://discord.gg/NanAFkRdww
+# │ - ARCADIA 위키 : https://arcadia.imweb.me/#
 # └────────────────────────────────────────────────────────────────────────────+
 
 # ┌────────────────────────────────────────────────────────────────────────────+
@@ -14,7 +14,7 @@
 message:
   normal:
     # 접두사
-    prefix: "&6[ PXITemEditor ] &f"
+    prefix: "&6[ ITemEditor ] &f"
 
     # config를 리로드 했을 때 출력됨
     reload_config: "&a콘피그를 리로드했습니다."

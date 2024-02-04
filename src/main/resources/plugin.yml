@@ -1,6 +1,6 @@
-name: PXItemEditor
+name: ArcItemEditor
 version: '${version}'
-main: com.sh.pxitemeditor.PXItemEditor
+main: com.sh.arcitemeditor.ArcItemEditor
 api-version: '1.17'
 
 commands:
@@ -8,24 +8,24 @@ commands:
     aliases: [ 아이템편집, itemeditor ]
 
 permissions:
-  px.itemeditor.*:
+  arc.itemeditor.*:
     default: op
     children:
-      - px.itemeditor.reload
-      - px.itemeditor.name
-      - px.itemeditor.lore
-      - px.itemeditor.custommodeldata
-      - px.itemeditor.unbreakable
-      - px.itemeditor.enchant
-  px.itemeditor.reload:
+      - arc.itemeditor.reload
+      - arc.itemeditor.name
+      - arc.itemeditor.lore
+      - arc.itemeditor.custommodeldata
+      - arc.itemeditor.unbreakable
+      - arc.itemeditor.enchant
+  arc.itemeditor.reload:
     default: op
-  px.itemeditor.name:
+  arc.itemeditor.name:
     default: op
-  px.itemeditor.lore:
+  arc.itemeditor.lore:
     default: op
-  px.itemeditor.custommodeldata:
+  arc.itemeditor.custommodeldata:
     default: op
-  px.itemeditor.unbreakable:
+  arc.itemeditor.unbreakable:
     default: op
-  px.itemeditor.enchant:
+  arc.itemeditor.enchant:
     default: op

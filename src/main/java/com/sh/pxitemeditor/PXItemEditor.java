@@ -40,7 +40,7 @@ public class PXItemEditor extends JavaPlugin {
     }
 
     public boolean hasPermission(Player player, String permission) {
-        if (player.hasPermission("px.itemeditor." + permission)) {
+        if (player.hasPermission("arc.itemeditor." + permission)) {
             return true;
         } else {
             player.sendMessage(getMessageManager().getMessage(MessageKey.NO_PERMISSION));
