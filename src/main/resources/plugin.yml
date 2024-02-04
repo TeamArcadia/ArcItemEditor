@@ -1,6 +1,6 @@
 name: ArcItemEditor
 version: '${version}'
-main: com.sh.arcitemeditor.ArcItemEditor
+main: com.sh.pxitemeditor.PXItemEditor
 api-version: '1.17'
 
 commands:
